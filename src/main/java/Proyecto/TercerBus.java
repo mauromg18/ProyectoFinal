@@ -19,7 +19,7 @@ public class TercerBus extends Bus {
      * @param destino el destino del recorrido del bus
      * @param horario el horario del bus
      */
-    public TercerrBus(Recorrido origen, Recorrido destino, String horario) {
+    public TercerBus(Recorrido origen, Recorrido destino, String horario) {
         this.origen = origen;
         this.destino = destino;
         this.horario = horario;
