@@ -17,14 +17,16 @@ public class DisponibilidadBuses {
         Horarios horario = new Horarios();
         buses = new ArrayList<>();
 
-        for (Recorridos origen : Recorridos.values()) {
-            for (Recorridos destino : Recorridos.values()) {
+        for (Recorrido origen : Recorrido.values()) {
+            for (Recorrido destino : Recorrido.values()) {
                 if (origen != destino) {
-                    for (int i = 1; i < 4; i++) {
-                        Bus1 bus1 = new Bus1(origen, destino, (horario.Horario(i)));
-                        addBus(bus1);
-                        Bus2 bus2 = new Bus2(origen, destino, (horario.Horario(i)));
-                        addBus(bus2);
+                    for (int i = 1; i < 8; i++) {
+                        PrimerBus Primerbus = new PrimerBus(origen, destino, (horario.Horario(i)));
+                        addBus(Primerbus);
+                        SegundoBus Segundobus = new SegundoBus(origen, destino, (horario.Horario(i)));
+                        addBus(Segundobus);
+                        TercerBus Tercerbus = new TercerBus(origen, destino, (horario.Horario(i)));
+                        addBus(Tercerbus);
                     }
                 }
             }
@@ -34,7 +36,7 @@ public class DisponibilidadBuses {
     /**
      * Agrega un bus a la lista de buses.
      *
-     * @param bus el bus a agregar
+     * @param bus el bus que se agrega
      */
     public void addBus(Bus bus) {
         buses.add(bus);
@@ -43,7 +45,7 @@ public class DisponibilidadBuses {
     /**
      * Agrega un bus disponible a la lista de buses disponibles.
      *
-     * @param bus el bus disponible a agregar
+     * @param bus el bus disponible que se agrega
      */
     public void addBusDisponible(Bus bus) {
         busesDisponibles.add(bus);
@@ -66,14 +68,14 @@ public class DisponibilidadBuses {
     /**
      * Filtra los buses disponibles según el origen, destino y horario elegidos.
      *
-     * @param origenElegido  el origen elegido
-     * @param destinoElegido el destino elegido
-     * @param horarioElegido el horario elegido
+     * @param origenSeleccionado  el origen seleccionado
+     * @param destinoSeleccionado el destino seleccionado
+     * @param horarioSeleccionado el horario seleccionado
      */
-    public void filtrarBuses(Recorridos origenElegido, Recorridos destinoElegido, String horarioElegido) {
+    public void filtrarBuses(Recorrido origenSeleccionado, Recorrido destinoSeleccionado, String horarioSeleccionado) {
         busesDisponibles = new ArrayList<>();
         for (int i = 0; i < buses.size(); i++) {
-            if (buses.get(i).getOrigen() == origenElegido && buses.get(i).getDestino() == destinoElegido && buses.get(i).getHorario() == horarioElegido) {
+            if (buses.get(i).getOrigen() == origenSeleccionado && buses.get(i).getDestino() == destinoSeleccionado && buses.get(i).getHorario() == horarioSeleccionado) {
                 addBusDisponible(buses.get(i));
             }
         }
