@@ -1,8 +1,15 @@
 package Proyecto;
+import GUI.Ventana;
 
-public class Main {
+/*
+ *@author: Mauro Muñoz
+ *hace la funcion de llamar a la clase ventana para ejecutarla en pantalla
+ */
+public class Main{
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+        Ventana v = new Ventana(); //única sentencia
+
     }
 }
-Mauro
+// claramente aun falta crear la ventana en la interfaz grafica
