@@ -1,5 +1,5 @@
 package Proyecto;
-//import GUI.Ventana;
+import GUI.Ventana;
 
 /*
  *@author: Mauro Muñoz
@@ -8,8 +8,7 @@ package Proyecto;
 public class Main{
     public static void main(String[] args) {
 
-        //Ventana v = new Ventana(); //única sentencia
+        Ventana v = new Ventana(); //única sentencia
 
     }
 }
-// claramente aun falta crear la ventana en la interfaz grafica
