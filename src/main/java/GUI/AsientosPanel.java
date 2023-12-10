@@ -29,7 +29,7 @@ public class AsientosPanel extends JPanel {
             for (int i = n; i < n + 12; i++) {
                 if (busSeleccionado.getAsiento(i).getTipo() == "Asiento SemiCama") {
                     if(busSeleccionado.getAsiento(i).getStatus()) {
-                        botones[i] = new JButton(new ImageIcon("Proyecto/src/imagenes/asientoNormalOcupado.png"));
+                        botones[i] = new JButton(new ImageIcon("Proyecto/src/ipmagenes/asientoNormalOcupado.png"));
                         botones[i].setEnabled(false);
                     }else{
                         botones[i] = new JButton(new ImageIcon("Proyecto/src/imagenes/asientoNormalDisponible.png"));
