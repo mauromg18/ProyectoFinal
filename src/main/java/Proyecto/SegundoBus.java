@@ -35,15 +35,15 @@ public class SegundoBus extends Bus {
     public void agregarAsientos() {
         for (int i = 0; i < 24; i++) {
             SemiCama asientos = new SemiCama(precioAsientoSemiCama);
-            AñadeAsiento(asientos);
+            addAsiento(asientos);
         }
         for (int i = 0; i < 10; i++) {
             SalonCama asientos = new SalonCama(precioAsientoSalonCama);
-            AñadeAsiento(asientos);
+            addAsiento(asientos);
         }
         for (int i = 0; i < 6; i++) {
             SalonVip asientos = new SalonVip(precioAsientoSalonVip);
-            AñadeAsiento(asientos);
+            addAsiento(asientos);
         }
     }
 

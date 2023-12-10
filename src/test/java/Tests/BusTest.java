@@ -41,17 +41,17 @@ public class BusTest {
             }
 
             @Override
-            public int precioAsientoNormal() {
+            public int precioAsientoSemiCama() {
                 return 0;
             }
 
             @Override
-            public int precioAsientoPremium() {
+            public int precioAsientoSalonCama() {
                 return 0;
             }
 
             @Override
-            public int precioAsientoVIP() {
+            public int precioAsientoSalonVip() {
                 return 0;
             }
         };
@@ -61,9 +61,9 @@ public class BusTest {
      * Prueba para agregar un asiento al bus.
      */
     @Test
-    public void testAgregarAsientos() {
+    public void testAddAsiento() {
         Asiento asiento = new SemiCama(100);
-        bus.agregarAsientos(asiento);
+        bus.addAsiento(asiento);
         Assertions.assertEquals(asiento, bus.getAsiento(0));
     }
 
@@ -73,7 +73,7 @@ public class BusTest {
     @Test
     public void testGetAsiento_IndexInRange() {
         Asiento asiento = new SalonCama(200);
-        bus.agregarAsientos(asiento);
+        bus.addAsiento(asiento);
         Asiento resultado = bus.getAsiento(0);
         Assertions.assertEquals(asiento, resultado);
     }

@@ -1,32 +1,29 @@
 package Proyecto;
-
 import java.util.ArrayList;
 
 /**
- * La clase DisponibilidadBuses es la encargada de gestionar los buses disponibles y filtrarlos según el origen, destino y horario seleccionados.
+ * La clase BusDisponible se encarga de gestionar los buses disponibles y filtrarlos según el origen, destino y horario seleccionados.
  */
-public class DisponibilidadBuses {
+public class BusDisponible {
     private ArrayList<Bus> buses;
     private ArrayList<Bus> busesDisponibles;
 
     /**
-     * Constructor de la clase DisponibilidadBuses.
-     * Crea instancias de los buses para todos los posibles recorridos y horarios.
+     * Constructor de la clase BusDisponible.
+     * Crea instancias de PrimerBus y SegundoBus para todos los posibles recorridos y horarios.
      */
-    public DisponibilidadBuses() {
+    public BusDisponible() {
         Horarios horario = new Horarios();
         buses = new ArrayList<>();
 
         for (Recorrido origen : Recorrido.values()) {
             for (Recorrido destino : Recorrido.values()) {
                 if (origen != destino) {
-                    for (int i = 1; i < 8; i++) {
-                        PrimerBus Primerbus = new PrimerBus(origen, destino, (horario.Horario(i)));
-                        addBus(Primerbus);
-                        SegundoBus Segundobus = new SegundoBus(origen, destino, (horario.Horario(i)));
-                        addBus(Segundobus);
-                        TercerBus Tercerbus = new TercerBus(origen, destino, (horario.Horario(i)));
-                        addBus(Tercerbus);
+                    for (int i = 1; i < 7; i++) {
+                        PrimerBus primerbus = new PrimerBus(origen, destino, (horario.Horario(i)));
+                        addBus(primerbus);
+                    SegundoBus segundobus = new SegundoBus(origen, destino, (horario.Horario(i)));
+                        addBus(segundobus);
                     }
                 }
             }
@@ -36,7 +33,7 @@ public class DisponibilidadBuses {
     /**
      * Agrega un bus a la lista de buses.
      *
-     * @param bus el bus que se agrega
+     * @param bus el bus a agregar
      */
     public void addBus(Bus bus) {
         buses.add(bus);
@@ -45,7 +42,7 @@ public class DisponibilidadBuses {
     /**
      * Agrega un bus disponible a la lista de buses disponibles.
      *
-     * @param bus el bus disponible que se agrega
+     * @param bus el bus disponible a agregar
      */
     public void addBusDisponible(Bus bus) {
         busesDisponibles.add(bus);

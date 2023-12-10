@@ -3,21 +3,22 @@ import Proyecto.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import java.util.ArrayList;
-//falta revisarlo y terminarlo
-/**
- * Pruebas unitarias para la clase DisponibilidadBuses.
- */
-public class DisponibilidadBusesTest {
 
-    private DisponibilidadBuses disponibilidadBuses;
+import java.util.ArrayList;
+
+/**
+ * Pruebas unitarias para la clase BusDisponible.
+ */
+public class BusDisponibleTest {
+
+    private BusDisponible busDisponible;
 
     /**
      * Configuración inicial para cada prueba.
      */
     @BeforeEach
     public void setUp() {
-        disponibilidadBuses = new DisponibilidadBuses();
+        busDisponible = new BusDisponible();
     }
 
     /**
@@ -25,9 +26,9 @@ public class DisponibilidadBusesTest {
      */
     @Test
     public void testAddBus() {
-        PrimerBus primerBus = new PrimerBus(Recorrido.CONCEPCION, Recorrido.CHILLAN, "11:00 AM");
-        disponibilidadBuses.addBus(primerBus);
-        Assertions.assertEquals(primerBus, disponibilidadBuses.getBus(0));
+        PrimerBus primerbus = new PrimerBus(Recorrido.CONCEPCION, Recorrido.CHILLAN, "13:00 AM");
+        busDisponible.addBus(primerbus);
+        Assertions.assertEquals(primerbus, busDisponible.getBus(0));
     }
 
     /**
@@ -35,9 +36,9 @@ public class DisponibilidadBusesTest {
      */
     @Test
     public void testAddBusDisponible() {
-        PrimerBus primerBus = new PrimerBus(Recorrido.CONCEPCION, Recorrido.CHILLAN, "11:00 AM");
-        disponibilidadBuses.addBusDisponible(primerBus);
-        Assertions.assertEquals(primerBus, disponibilidadBuses.getBusDisponible(0));
+        PrimerBus primerbus = new PrimerBus(Recorrido.CONCEPCION, Recorrido.CHILLAN, "13:00 AM");
+        busDisponible.addBusDisponible(primerbus);
+        Assertions.assertEquals(primerbus, busDisponible.getBusDisponible(0));
     }
 
     /**
@@ -45,10 +46,10 @@ public class DisponibilidadBusesTest {
      */
     @Test
     public void testGetBus() {
-        PrimerBus primerBus = new PrimerBus(Recorrido.CONCEPCION, Recorrido.CHILLAN, "11:00 AM");
-        disponibilidadBuses.addBus(primerBus);
-        Bus bus = disponibilidadBuses.getBus(0);
-        Assertions.assertEquals(primerBus, bus);
+        PrimerBus primerbus = new PrimerBus(Recorrido.CONCEPCION, Recorrido.CHILLAN, "13:00 AM");
+        busDisponible.addBus(primerbus);
+        Bus bus = busDisponible.getBus(0);
+        Assertions.assertEquals(primerbus, bus);
     }
 
     /**
@@ -56,7 +57,7 @@ public class DisponibilidadBusesTest {
      */
     @Test
     public void testGetBusReturnsNullIfIndexOutOfRange() {
-        Bus bus = disponibilidadBuses.getBus(100);
+        Bus bus = busDisponible.getBus(100);
         Assertions.assertNull(bus);
     }
 
@@ -65,8 +66,8 @@ public class DisponibilidadBusesTest {
      */
     @Test
     public void testFiltrarBuses() {
-        disponibilidadBuses.filtrarBuses(Recorrido.CONCEPCION, Recorrido.CHILLAN, "11:00 AM");
-        Assertions.assertEquals(0, disponibilidadBuses.getBusesDisponibles().size());
+        busDisponible.filtrarBuses(Recorrido.CONCEPCION, Recorrido.CHILLAN, "13:00 AM");
+        Assertions.assertEquals(2, busDisponible.getBusesDisponibles().size());
     }
 
     /**
@@ -74,7 +75,7 @@ public class DisponibilidadBusesTest {
      */
     @Test
     public void testGetBusesDisponibles() {
-        ArrayList<Bus> busesDisponibles = disponibilidadBuses.getBusesDisponibles();
+        ArrayList<Bus> busesDisponibles = busDisponible.getBusesDisponibles();
         Assertions.assertNotNull(busesDisponibles);
         Assertions.assertEquals(0, busesDisponibles.size());
     }
@@ -84,10 +85,10 @@ public class DisponibilidadBusesTest {
      */
     @Test
     public void testGetBusDisponible() {
-        PrimerBus primerBus = new PrimerBus(Recorrido.CONCEPCION, Recorrido.CHILLAN, "11:00 AM");
-        disponibilidadBuses.addBusDisponible(primerBus);
-        Bus bus = disponibilidadBuses.getBusDisponible(0);
-        Assertions.assertEquals(primerBus, bus);
+        PrimerBus primerbus = new PrimerBus(Recorrido.CONCEPCION, Recorrido.CHILLAN, "13:00 AM");
+        busDisponible.addBusDisponible(primerbus);
+        Bus bus = busDisponible.getBusDisponible(0);
+        Assertions.assertEquals(primerbus, bus);
     }
 
     /**
@@ -95,7 +96,7 @@ public class DisponibilidadBusesTest {
      */
     @Test
     public void testGetBusDisponibleReturnsNullIfIndexOutOfRange() {
-        Bus bus = disponibilidadBuses.getBusDisponible(100);
+        Bus bus = busDisponible.getBusDisponible(100);
         Assertions.assertNull(bus);
     }
 }

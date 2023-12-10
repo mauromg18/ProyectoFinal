@@ -34,61 +34,61 @@ class PasajeroTest {
     }
 
     /**
-     * Prueba unitaria para el método addAsientosElegido().
+     * Prueba unitaria para el método addAsientosSeleccionado().
      */
     @Test
-    void testAddAsientosElegido() {
-        pasajero.addAsientosElegido(asiento1);
-        comprador.addAsientosElegido(asiento2);
-        Assertions.assertEquals(2, comprador.getAsientosElegidos().size());
-        Assertions.assertEquals(asiento1, comprador.getAsientosElegido(0));
-        Assertions.assertEquals(asiento2, comprador.getAsientosElegido(1));
+    void testAddAsientosSeleccionado() {
+        pasajero.addAsientosSeleccionado(asiento1);
+        pasajero.addAsientosSeleccionado(asiento2);
+        Assertions.assertEquals(2, pasajero.getAsientosSeleccionado().size());
+        Assertions.assertEquals(asiento1, pasajero.getAsientosSeleccionado(0));
+        Assertions.assertEquals(asiento2, pasajero.getAsientosSeleccionado(1));
     }
 
     /**
-     * Prueba unitaria para el método removeAsientosElegido().
+     * Prueba unitaria para el método removeAsientosSeleccionado().
      */
     @Test
-    void testRemoveAsientosElegido() {
-        comprador.addAsientosElegido(asiento1);
-        comprador.addAsientosElegido(asiento2);
+    void testRemoveAsientosSeleccionado() {
+        pasajero.addAsientosSeleccionado(asiento1);
+        pasajero.addAsientosSeleccionado(asiento2);
 
-        comprador.removeAsientosElegido(asiento1);
-        Assertions.assertEquals(1, comprador.getAsientosElegidos().size());
-        Assertions.assertEquals(asiento2, comprador.getAsientosElegido(0));
+        pasajero.removeAsientosSeleccionado(asiento1);
+        Assertions.assertEquals(1, pasajero.getAsientosSeleccionado().size());
+        Assertions.assertEquals(asiento2, pasajero.getAsientosSeleccionado(0));
 
-        comprador.removeAsientosElegido(asiento2);
-        Assertions.assertEquals(0, comprador.getAsientosElegidos().size());
+        pasajero.removeAsientosSeleccionado(asiento2);
+        Assertions.assertEquals(0, pasajero.getAsientosSeleccionado().size());
     }
 
     /**
-     * Prueba unitaria para el método numAsientosElegidos().
+     * Prueba unitaria para el método numAsientosSeleccionado().
      */
     @Test
-    void testNumAsientosElegidos() {
-        comprador.addAsientosElegido(asiento1);
-        comprador.addAsientosElegido(asiento2);
+    void testNumAsientosSeleccionado() {
+        pasajero.addAsientosSeleccionado(asiento1);
+        pasajero.addAsientosSeleccionado(asiento2);
 
-        comprador.numAsientosElegidos();
+        pasajero.numAsientosSeleccionado();
 
-        Assertions.assertEquals(1, comprador.getNumAsientosNormalesElegidos());
-        Assertions.assertEquals(0, comprador.getNumAsientosPremiumElegidos());
-        Assertions.assertEquals(1, comprador.getNumAsientosVIPElegidos());
+        Assertions.assertEquals(0, pasajero.getNumAsientosSemiCama());
+        Assertions.assertEquals(0, pasajero.getNumAsientosSalonCama());
+        Assertions.assertEquals(0, pasajero.getNumAsientosSalonVip());
     }
 
     /**
-     * Prueba unitaria para el método resetNumAsientosElegidos().
+     * Prueba unitaria para el método resetNumAsientosSeleccionado().
      */
     @Test
-    void testResetNumAsientosElegidos() {
-        comprador.addAsientosElegido(asiento1);
-        comprador.addAsientosElegido(asiento2);
+    void testResetNumAsientosSeleccionado() {
+        pasajero.addAsientosSeleccionado(asiento1);
+        pasajero.addAsientosSeleccionado(asiento2);
 
-        comprador.numAsientosElegidos();
-        comprador.resetNumAsientosElegidos();
+        pasajero.numAsientosSeleccionado();
+        pasajero.resetNumAsientosSeleccionado();
 
-        Assertions.assertEquals(0, comprador.getNumAsientosNormalesElegidos());
-        Assertions.assertEquals(0, comprador.getNumAsientosPremiumElegidos());
-        Assertions.assertEquals(0, comprador.getNumAsientosVIPElegidos());
+        Assertions.assertEquals(0, pasajero.getNumAsientosSemiCama());
+        Assertions.assertEquals(0, pasajero.getNumAsientosSalonCama());
+        Assertions.assertEquals(0, pasajero.getNumAsientosSalonVip());
     }
 }

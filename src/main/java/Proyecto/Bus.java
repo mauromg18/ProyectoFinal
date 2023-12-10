@@ -1,25 +1,21 @@
 package Proyecto;
-
 import java.util.ArrayList;
-
 /**
- * La clase  Bus representa un bus.
+ * La clase abstracta Bus representa un bus.
  */
 public abstract class Bus {
     private ArrayList<Asiento> asientosBus;
-
     /**
-     * Constructor de la clase Bus.
+     * Constructor por defecto de la clase Bus.
      * Inicializa la lista de asientos del bus y llama al método agregarAsientos().
      */
     public Bus() {
         asientosBus = new ArrayList<Asiento>();
         agregarAsientos();
     }
-
     /**
-     * Método para agregar los asientos del bus.
-     * Cada subclase debe implementar este método para ver cada cosa sobre los asientos.
+     * Método abstracto para agregar los asientos al bus.
+     * Cada subclase debe implementar este método.
      */
     public abstract void agregarAsientos();
 
@@ -28,15 +24,14 @@ public abstract class Bus {
      *
      * @param asiento el asiento a agregar
      */
-    public void AñadeAsiento(Asiento asiento) {
+    public void addAsiento(Asiento asiento) {
         asientosBus.add(asiento);
     }
 
     /**
-     * extrae el asiento.
-     *
+     * Obtiene el asiento en el índice requerido.
      * @param indice el índice del asiento
-     * @return el asiento en el índice, o null si el índice está fuera de rango
+     * @return el asiento en el índice requerido, o null si el índice está fuera de rango
      */
     public Asiento getAsiento(int indice) {
         if (indice >= 0 && indice < asientosBus.size()) {
@@ -47,37 +42,37 @@ public abstract class Bus {
     }
 
     /**
-     * extrae el origen del bus.
+     * Obtiene el origen del recorrido del bus.
      *
-     * @return el origen del bus
+     * @return el origen del recorrido del bus
      */
     public abstract Recorrido getOrigen();
 
     /**
-     * extrae el destino del bus.
+     * Obtiene el destino del recorrido del bus.
      *
-     * @return el destino del bus
+     * @return el destino del recorrido del bus
      */
     public abstract Recorrido getDestino();
 
     /**
-     * extrae el horario del bus.
+     * Obtiene el horario del bus.
      *
      * @return el horario del bus
      */
     public abstract String getHorario();
 
     /**
-     * extrae el tipo de bus.
+     * Obtiene el tipo de bus.
      *
      * @return el tipo de bus
      */
     public abstract int tipo();
 
     /**
-     * extrae el precio de un asiento Semi cama en el bus.
+     * Obtiene el precio de un asiento semi cama en el bus.
      *
-     * @return el precio de un asiento semicama
+     * @return el precio de un asiento semi cama
      */
     public abstract int precioAsientoSemiCama();
 
@@ -89,9 +84,9 @@ public abstract class Bus {
     public abstract int precioAsientoSalonCama();
 
     /**
-     * Obtiene el precio de un asiento vip en el bus.
+     * Obtiene el precio de un asiento salon vip en el bus.
      *
-     * @return el precio de un asiento vip
+     * @return el precio de un asiento salon vip
      */
     public abstract int precioAsientoSalonVip();
 }
