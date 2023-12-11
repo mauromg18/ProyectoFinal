@@ -8,24 +8,24 @@ import javax.swing.JPanel;
  * El Panel es una clase que interactúa con la ventana del expendedor.
  */
 public class Panel extends JPanel{
-    private PanelRecorrido pr;
-    private SelectorBus bus;
+    private RecorridoPanel pr;
+    private SeleccionBus bus;
     private BusDisponible busDisponible;
 
     /**
-     * Crea un nuevo Panel con el tamaño especificado, el comprador y los buses disponibles.
+     * Crea un nuevo Panel con el tamaño especificado, el pasajero y los buses disponibles.
      * @param Tamano el tamaño del panel
-     * @param comprador el comprador asociado al panel
+     * @param pasajero el pasajero asociado al panel
      * @param busDisponible los buses disponibles
      */
-    public Panel(int Tamano, Comprador comprador, BusDisponible busDisponible){
+    public Panel(int Tamano, Pasajero pasajero, BusDisponible busDisponible){
         super();
         setLayout(null);
         setBounds(0, 0, 4*Tamano, 3*Tamano);
         this.setBackground(Color.white);
 
-        this.bus = new SelectorBus(busDisponible, comprador);
-        pr = new PanelRecorrido(comprador, busDisponible, bus);
+        this.bus = new SeleccionBus(busDisponible, pasajero);
+        pr = new RecorridoPanel(pasajero, busDisponible, bus);
         this.busDisponible = busDisponible;
         add(pr);
         add(bus);

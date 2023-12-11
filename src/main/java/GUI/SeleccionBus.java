@@ -1,7 +1,7 @@
 package GUI;
-import code.Bus;
-import code.BusDisponible;
-import code.Comprador;
+import Proyecto.Bus;
+import Proyecto.BusDisponible;
+import Proyecto.Pasajero;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -10,22 +10,22 @@ import java.awt.event.ActionListener;
 /**
  * El SelectorBus es una clase que representa el panel de selección de bus.
  */
-public class SelectorBus extends JPanel implements ActionListener {
+public class SeleccionBus extends JPanel implements ActionListener {
     private JComboBox<String> comboBox;
     private JButton button;
     private BusDisponible busDisponible;
-    private Comprador comprador;
-    private Bus busElegido;
+    private Pasajero pasajero;
+    private Bus busSeleccionado;
 
     /**
      * Crea un nuevo SelectorBus con los buses disponibles y el comprador asociados.
      * @param busDisponible los buses disponibles
-     * @param comprador el comprador asociado
+     * @param Pasajero el comprador asociado
      */
-    public SelectorBus(BusDisponible busDisponible, Comprador comprador) {
+    public SeleccionBus(BusDisponible busDisponible, Pasajero pasajero) {
         this.busDisponible = busDisponible;
-        this.comprador = comprador;
-        busDisponible.filtrarBuses(comprador.getOrigenElegido(), comprador.getDestinoElegido(), comprador.getHorarioElegido());
+        this.pasajero = pasajero;
+        busDisponible.filtrarBuses(pasajero.getOrigenSeleccionado(), pasajero.getDestinoSeleccionado(), pasajero.getHorarioSeleccionado());
 
         String[] busNombre = new String[busDisponible.getBusesDisponibles().size()];
         for (int i = 0; i < busDisponible.getBusesDisponibles().size(); i++) {
@@ -49,12 +49,12 @@ public class SelectorBus extends JPanel implements ActionListener {
             int selectedIndex = comboBox.getSelectedIndex();
             if (selectedIndex >= 0 && selectedIndex < busDisponible.getBusesDisponibles().size()) {
                 // Hacer algo con el bus seleccionado
-                busElegido = busDisponible.getBusDisponible(selectedIndex);
-                System.out.println("Bus seleccionado: " + busElegido);
+                busSeleccionado = busDisponible.getBusDisponible(selectedIndex);
+                System.out.println("Bus seleccionado: " + busSeleccionado);
 
-                if(busElegido != null){
+                if(busSeleccionado != null){
                     this.setLayout(null);
-                    PanelAsientosBus asientosBus = new PanelAsientosBus(comprador, busDisponible, busElegido);
+                    PanelBus asientosBus = new PanelBus(pasajero, busDisponible, busSeleccionado);
                     this.add(asientosBus);
                     asientosBus.setBounds(0,100,700,900);
                     revalidate();
@@ -73,7 +73,7 @@ public class SelectorBus extends JPanel implements ActionListener {
      * @param busDisponible los buses disponibles
      */
     public void actualizarBuses(BusDisponible busDisponible) {
-        busDisponible.filtrarBuses(comprador.getOrigenElegido(), comprador.getDestinoElegido(), comprador.getHorarioElegido());
+        busDisponible.filtrarBuses(pasajero.getOrigenSeleccionado(), pasajero.getDestinoSeleccionado(), pasajero.getHorarioSeleccionado());
         this.busDisponible = busDisponible;
         String[] busNames = new String[busDisponible.getBusesDisponibles().size()];
         for (int i = 0; i < busDisponible.getBusesDisponibles().size(); i++) {

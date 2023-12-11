@@ -29,30 +29,30 @@ public class AsientosPanel extends JPanel {
             for (int i = n; i < n + 12; i++) {
                 if (busSeleccionado.getAsiento(i).getTipo() == "Asiento SemiCama") {
                     if(busSeleccionado.getAsiento(i).getStatus()) {
-                        botones[i] = new JButton(new ImageIcon("Proyecto/src/ipmagenes/asientoNormalOcupado.png"));
+                        botones[i] = new JButton(new ImageIcon("Proyecto/src/main/java/imagenes/AsientoOcupado.png"));
                         botones[i].setEnabled(false);
                     }else{
-                        botones[i] = new JButton(new ImageIcon("Proyecto/src/imagenes/asientoNormalDisponible.png"));
+                        botones[i] = new JButton(new ImageIcon("Proyecto/src/main/java/imagenes/AsientoSemiCama.png"));
                     }
                     botones[i].setBackground(Color.white);
                     botones[i].addActionListener(new BotonListener(i));
                     add(botones[i]);
-                } else if (busElegido.getAsiento(i).getTipo() == "Asiento premium") {
-                    if(busElegido.getAsiento(i).getStatus()) {
-                        botones[i] = new JButton(new ImageIcon("Proyecto/src/imagenes/asientoPremiumOcupado.png"));
+                } else if (busSeleccionado.getAsiento(i).getTipo() == "Asiento SalonCama") {
+                    if(busSeleccionado.getAsiento(i).getStatus()) {
+                        botones[i] = new JButton(new ImageIcon("Proyecto/src/main/java/imagenes/AsientoOcupado.png"));
                         botones[i].setEnabled(false);
                     }else{
-                        botones[i] = new JButton(new ImageIcon("Proyecto/src/imagenes/asientoPremiumDisponible.png"));
+                        botones[i] = new JButton(new ImageIcon("Proyecto/src/main/java/imagenes/SalonCama.png"));
                     }
                     botones[i].setBackground(Color.white);
                     botones[i].addActionListener(new BotonListener(i));
                     add(botones[i]);
-                } else if (busElegido.getAsiento(i).getTipo() == "Asiento VIP") {
-                    if(busElegido.getAsiento(i).getStatus()) {
-                        botones[i] = new JButton(new ImageIcon("Proyecto/src/imagenes/asientoVIPOcupado.png"));
+                } else if (busSeleccionado.getAsiento(i).getTipo() == "Asiento SalonVip") {
+                    if(busSeleccionado.getAsiento(i).getStatus()) {
+                        botones[i] = new JButton(new ImageIcon("Proyecto/src/main/java/imagenes/AsientoOcupado.png"));
                         botones[i].setEnabled(false);
                     }else{
-                        botones[i] = new JButton(new ImageIcon("Proyecto/src/imagenes/asientoVIPDisponible.png"));
+                        botones[i] = new JButton(new ImageIcon("Proyecto/src/main/java/imagenes/SalonVip.png"));
                     }
                     botones[i].setBackground(Color.white);
                     botones[i].addActionListener(new BotonListener(i));
@@ -75,8 +75,8 @@ public class AsientosPanel extends JPanel {
          */
         public BotonListener(int index) {
             botonIndex = index;
-            busElegido.getAsiento(botonIndex).cambiarStatus();
-            ocupado = busElegido.getAsiento(botonIndex).getStatus();
+            busSeleccionado.getAsiento(botonIndex).cambiarEstado();
+            ocupado = busSeleccionado.getAsiento(botonIndex).getStatus();
         }
 
         /**
@@ -86,26 +86,26 @@ public class AsientosPanel extends JPanel {
         public void actionPerformed(ActionEvent e) {
             ocupado = !ocupado;
             if (ocupado) {
-                if (busElegido.getAsiento(botonIndex).getTipo().equals("Asiento normal")) {
-                    botones[botonIndex].setIcon(new ImageIcon("Proyecto/src/imagenes/asientoNormalDisponible.png"));
-                    comprador.removeAsientosElegido(busElegido.getAsiento(botonIndex));
-                } else if (busElegido.getAsiento(botonIndex).getTipo().equals("Asiento premium")) {
-                    botones[botonIndex].setIcon(new ImageIcon("Proyecto/src/imagenes/asientoPremiumDisponible.png"));
-                    comprador.removeAsientosElegido(busElegido.getAsiento(botonIndex));
-                } else if (busElegido.getAsiento(botonIndex).getTipo().equals("Asiento VIP")) {
-                    botones[botonIndex].setIcon(new ImageIcon("Proyecto/src/imagenes/asientoVIPDisponible.png"));
-                    comprador.removeAsientosElegido(busElegido.getAsiento(botonIndex));
+                if (busSeleccionado.getAsiento(botonIndex).getTipo().equals("Asiento SemiCama")) {
+                    botones[botonIndex].setIcon(new ImageIcon("Proyecto/src/main/java/imagenes/AsientoSemiCama.png"));
+                    pasajero.removeAsientosSeleccionado(busSeleccionado.getAsiento(botonIndex));
+                } else if (busSeleccionado.getAsiento(botonIndex).getTipo().equals("Asiento SalonCama")) {
+                    botones[botonIndex].setIcon(new ImageIcon("Proyecto/src/main/java/imagenes/SalonCama.png"));
+                    pasajero.removeAsientosSeleccionado(busSeleccionado.getAsiento(botonIndex));
+                } else if (busSeleccionado.getAsiento(botonIndex).getTipo().equals("Asiento VIP")) {
+                    botones[botonIndex].setIcon(new ImageIcon("Proyecto/src/main/java/imagenes/SalonVip.png"));
+                    pasajero.removeAsientosSeleccionado(busSeleccionado.getAsiento(botonIndex));
                 }
             } else {
-                if (busElegido.getAsiento(botonIndex).getTipo().equals("Asiento normal")) {
-                    botones[botonIndex].setIcon(new ImageIcon("Proyecto/src/imagenes/asientoNormalOcupado.png"));
-                    comprador.addAsientosElegido(busElegido.getAsiento(botonIndex));
-                } else if (busElegido.getAsiento(botonIndex).getTipo().equals("Asiento premium")) {
-                    botones[botonIndex].setIcon(new ImageIcon("Proyecto/src/imagenes/asientoPremiumOcupado.png"));
-                    comprador.addAsientosElegido(busElegido.getAsiento(botonIndex));
-                } else if (busElegido.getAsiento(botonIndex).getTipo().equals("Asiento VIP")) {
-                    botones[botonIndex].setIcon(new ImageIcon("Proyecto/src/imagenes/asientoVIPOcupado.png"));
-                    comprador.addAsientosElegido(busElegido.getAsiento(botonIndex));
+                if (busSeleccionado.getAsiento(botonIndex).getTipo().equals("Asiento SemiCama")) {
+                    botones[botonIndex].setIcon(new ImageIcon("Proyecto/src/main/java/imagenes/AsientoSemiCama.png"));
+                    pasajero.addAsientosSeleccionado(busSeleccionado.getAsiento(botonIndex));
+                } else if (busSeleccionado.getAsiento(botonIndex).getTipo().equals("Asiento premium")) {
+                    botones[botonIndex].setIcon(new ImageIcon("Proyecto/src/main/java/imagenes/SalonCama.png"));
+                    pasajero.addAsientosSeleccionado(busSeleccionado.getAsiento(botonIndex));
+                } else if (busSeleccionado.getAsiento(botonIndex).getTipo().equals("Asiento VIP")) {
+                    botones[botonIndex].setIcon(new ImageIcon("Proyecto/src/main/java/imagenes/SalonVip.png"));
+                    pasajero.addAsientosSeleccionado(busSeleccionado.getAsiento(botonIndex));
                 }
             }
         }

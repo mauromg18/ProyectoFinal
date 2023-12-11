@@ -1,29 +1,29 @@
 package GUI;
-import code.*;
+import Proyecto.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * El PanelAsientosBus es una clase que representa el panel de visualización y selección de asientos en un bus específico.
+ * El PanelBus es una clase que representa el panel de visualización y selección de asientos en un bus específico.
  */
-public class PanelAsientosBus extends JPanel {
-    private PanelAsientos asientos1;
-    private PanelAsientos asientos2;
+public class PanelBus extends JPanel {
+    private AsientosPanel asientos1;
+    private AsientosPanel asientos2;
     private JButton confirmar;
 
     /**
      * Crea un nuevo PanelAsientosBus con el comprador, los buses disponibles y el bus elegido especificados.
-     * @param comprador el comprador asociado al panel
+     * @param pasajero el comprador asociado al panel
      * @param buses los buses disponibles
-     * @param busElegido el bus seleccionado
+     * @param busSeleccionado el bus seleccionado
      */
-    public PanelAsientosBus(Comprador comprador, BusDisponible buses, Bus busElegido) {
+    public PanelBus(Pasajero pasajero, BusDisponible buses, Bus busSeleccionado) {
         setLayout(null);
         setBackground(Color.white);
-        asientos1 = new PanelAsientos(0, busElegido, comprador);
-        asientos2 = new PanelAsientos(12, busElegido, comprador);
+        asientos1 = new AsientosPanel(0, busSeleccionado, pasajero);
+        asientos2 = new AsientosPanel(12, busSeleccionado, pasajero);
 
         asientos1.setBounds(0, 0, 100, 370);
         add(asientos1);
@@ -35,27 +35,27 @@ public class PanelAsientosBus extends JPanel {
         add(confirmar);
         confirmar.setBounds(100, 380, 100, 40);
 
-        confirmar.addActionListener(new ConfirmarListener(comprador, buses, busElegido));
+        confirmar.addActionListener(new ConfirmarListener(pasajero, buses, busSeleccionado));
     }
 
     /**
      * El ConfirmarListener es una clase interna que implementa ActionListener para manejar el evento de confirmación de reserva.
      */
     private class ConfirmarListener implements ActionListener {
-        private Comprador comprador;
+        private Pasajero pasajero;
         private BusDisponible buses;
-        private Bus busElegido;
+        private Bus busSeleccionado;
 
         /**
          * Crea un nuevo ConfirmarListener con el comprador, los buses disponibles y el bus elegido asociados.
-         * @param comprador el comprador asociado al panel
+         * @param pasajero el comprador asociado al panel
          * @param buses los buses disponibles
-         * @param busElegido el bus seleccionado
+         * @param busSeleccionado el bus seleccionado
          */
-        public ConfirmarListener(Comprador comprador, BusDisponible buses, Bus busElegido) {
-            this.comprador = comprador;
+        public ConfirmarListener(Pasajero pasajero, BusDisponible buses, Bus busSeleccionado) {
+            this.pasajero = pasajero;
             this.buses = buses;
-            this.busElegido = busElegido;
+            this.busSeleccionado = busSeleccionado;
         }
 
         /**
@@ -64,14 +64,14 @@ public class PanelAsientosBus extends JPanel {
          */
         @Override
         public void actionPerformed(ActionEvent e) {
-            comprador.numAsientosElegidos();
-            String mensaje = "Usted va a reservar " + comprador.getAsientosElegidos().size() + " asientos en nuestro bus "+ busElegido.tipo() +" con origen: " +
-                    busElegido.getOrigen() + " y destino: " + busElegido.getDestino() + "\nProgramado con "+ busElegido.getHorario() + "\nAsiento normal: $" +
-                    busElegido.precioAsientoNormal() + " x " + comprador.getNumAsientosNormalesElegidos() + " = $" + busElegido.precioAsientoNormal() * comprador.getNumAsientosNormalesElegidos() +
-                    "\nAsiento Premium: $" + busElegido.precioAsientoPremium() + " x " + comprador.getNumAsientosPremiumElegidos() + " = $" +
-                    busElegido.precioAsientoPremium() * comprador.getNumAsientosPremiumElegidos() + "\nAsiento VIP: $" + busElegido.precioAsientoVIP() + " x " +
-                    comprador.getNumAsientosVIPElegidos() + " = $" + busElegido.precioAsientoVIP() * comprador.getNumAsientosVIPElegidos() + "\nTOTAL: $" +
-                    ((busElegido.precioAsientoNormal() * comprador.getNumAsientosNormalesElegidos()) + (busElegido.precioAsientoPremium() * comprador.getNumAsientosPremiumElegidos()) + (busElegido.precioAsientoVIP() * comprador.getNumAsientosVIPElegidos()));  //Mucho texto
+            pasajero.numAsientosSeleccionado();
+            String mensaje = "Usted va a reservar " + pasajero.getAsientosSeleccionado().size() + " asientos en nuestro bus "+ busSeleccionado.tipo() +" con origen: " +
+                    busSeleccionado.getOrigen() + " y destino: " + busSeleccionado.getDestino() + "\nProgramado con "+ busSeleccionado.getHorario() + "\nAsiento normal: $" +
+                    busSeleccionado.precioAsientoSemiCama() + " x " + pasajero.getNumAsientosSemiCama() + " = $" + busSeleccionado.precioAsientoSemiCama() * pasajero.getNumAsientosSemiCama() +
+                    "\nAsiento Premium: $" + busSeleccionado.precioAsientoSalonCama() + " x " + pasajero.getNumAsientosSalonCama() + " = $" +
+                    busSeleccionado.precioAsientoSalonCama() * pasajero.getNumAsientosSalonCama() + "\nAsiento VIP: $" + busSeleccionado.precioAsientoSalonVip() + " x " +
+                    pasajero.getNumAsientosSalonVip() + " = $" + busSeleccionado.precioAsientoSalonVip() * pasajero.getNumAsientosSalonVip() + "\nTOTAL: $" +
+                    ((busSeleccionado.precioAsientoSemiCama() * pasajero.getNumAsientosSemiCama()) + (busSeleccionado.precioAsientoSalonCama() * pasajero.getNumAsientosSalonCama()) + (busSeleccionado.precioAsientoSalonVip() * pasajero.getNumAsientosSalonVip()));
             int opcion = JOptionPane.showOptionDialog(
                     null,
                     mensaje,
@@ -84,8 +84,8 @@ public class PanelAsientosBus extends JPanel {
             );
 
             if (opcion == JOptionPane.YES_OPTION) {
-                for (int i = 0; i < comprador.getAsientosElegidos().size(); i++) {
-                    comprador.getAsientosElegido(i).cambiarStatus();
+                for (int i = 0; i < pasajero.getAsientosSeleccionado().size(); i++) {
+                    pasajero.getAsientosSeleccionado(i).cambiarEstado();
                 }
                 //Resetear despues de terminar la compra
                 JOptionPane.showMessageDialog(
@@ -95,7 +95,7 @@ public class PanelAsientosBus extends JPanel {
                         JOptionPane.INFORMATION_MESSAGE
                 );
             } else if (opcion == JOptionPane.NO_OPTION) {
-                comprador.resetNumAsientosElegidos();
+                pasajero.resetNumAsientosSeleccionado();
                 //agregar reseteo de variables
                 System.out.println("Cancelar pago");
             }
