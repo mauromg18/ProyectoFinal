@@ -15,6 +15,7 @@ public class BusDisponible {
     public BusDisponible() {
         Horarios horario = new Horarios();
         buses = new ArrayList<>();
+        busesDisponibles = new ArrayList<>();
 
         for (Recorrido origen : Recorrido.values()) {
             for (Recorrido destino : Recorrido.values()) {

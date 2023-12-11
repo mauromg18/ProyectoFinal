@@ -155,11 +155,11 @@ public class Pasajero {
      */
     public void numAsientosSeleccionado(){
         for (int i = 0; i < getAsientosSeleccionado().size(); i++) {
-            if (asientosSeleccionado.get(i).getTipo() == "Asiento semi cama"){
+            if ("Asiento semi cama".equals(asientosSeleccionado.get(i).getTipo())) {
                 numAsientosSemiCama++;
-            } else if (asientosSeleccionado.get(i).getTipo() == "Asiento salon cama") {
+            } else if ("Asiento salon cama".equals(asientosSeleccionado.get(i).getTipo())) {
                 numAsientosSalonCama++;
-            } else if (asientosSeleccionado.get(i).getTipo() == "Asiento salon vip") {
+            } else if ("Asiento salon vip".equals(asientosSeleccionado.get(i).getTipo())) {
                 numAsientosSalonVip++;
             }
         }

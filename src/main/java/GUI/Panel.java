@@ -5,10 +5,10 @@ import java.awt.*;
 import javax.swing.JPanel;
 
 /**
- * El Panel es una clase que interactúa con la ventana del expendedor.
+ * El Panel es una clase que interactúa con la ventana.
  */
 public class Panel extends JPanel{
-    private RecorridoPanel pr;
+    private RecorridoPanel rp;
     private SeleccionBus bus;
     private BusDisponible busDisponible;
 
@@ -22,16 +22,16 @@ public class Panel extends JPanel{
         super();
         setLayout(null);
         setBounds(0, 0, 4*Tamano, 3*Tamano);
-        this.setBackground(Color.white);
+        this.setBackground(Color.blue);
 
         this.bus = new SeleccionBus(busDisponible, pasajero);
-        pr = new RecorridoPanel(pasajero, busDisponible, bus);
+        rp = new RecorridoPanel(pasajero, busDisponible, bus);
         this.busDisponible = busDisponible;
-        add(pr);
+        add(rp);
         add(bus);
 
         this.setBounds(0,0,700,900);
-        pr.setBounds(0,0,700,50);
+        rp.setBounds(0,0,700,50);
         bus.setBounds(0,50,700,900);
     }
 

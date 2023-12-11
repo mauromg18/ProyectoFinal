@@ -23,10 +23,10 @@ public class AsientosPanel extends JPanel {
         this.busSeleccionado = busSeleccionado;
         this.pasajero = pasajero;
 
-        setLayout(new GridLayout(6, 2));
-        botones = new JButton[24];
+        setLayout(new GridLayout(10, 2));
+        botones = new JButton[40];
         if(busSeleccionado != null) {
-            for (int i = n; i < n + 12; i++) {
+            for (int i = n; i < n + 20; i++) {
                 if (busSeleccionado.getAsiento(i).getTipo() == "Asiento SemiCama") {
                     if(busSeleccionado.getAsiento(i).getStatus()) {
                         botones[i] = new JButton(new ImageIcon("Proyecto/src/main/java/imagenes/AsientoOcupado.png"));

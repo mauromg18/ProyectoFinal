@@ -14,16 +14,16 @@ public class PanelBus extends JPanel {
     private JButton confirmar;
 
     /**
-     * Crea un nuevo PanelAsientosBus con el comprador, los buses disponibles y el bus elegido especificados.
-     * @param pasajero el comprador asociado al panel
+     * Crea un nuevo PanelAsientosBus con el comprador, los buses disponibles y el bus seleccionado especificados.
+     * @param pasajero el pasajero asociado al panel
      * @param buses los buses disponibles
      * @param busSeleccionado el bus seleccionado
      */
     public PanelBus(Pasajero pasajero, BusDisponible buses, Bus busSeleccionado) {
         setLayout(null);
-        setBackground(Color.white);
+        setBackground(Color.blue);
         asientos1 = new AsientosPanel(0, busSeleccionado, pasajero);
-        asientos2 = new AsientosPanel(12, busSeleccionado, pasajero);
+        asientos2 = new AsientosPanel(20, busSeleccionado, pasajero);
 
         asientos1.setBounds(0, 0, 100, 370);
         add(asientos1);
@@ -48,7 +48,7 @@ public class PanelBus extends JPanel {
 
         /**
          * Crea un nuevo ConfirmarListener con el comprador, los buses disponibles y el bus elegido asociados.
-         * @param pasajero el comprador asociado al panel
+         * @param pasajero el pasajero asociado al panel
          * @param buses los buses disponibles
          * @param busSeleccionado el bus seleccionado
          */
@@ -65,11 +65,11 @@ public class PanelBus extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             pasajero.numAsientosSeleccionado();
-            String mensaje = "Usted va a reservar " + pasajero.getAsientosSeleccionado().size() + " asientos en nuestro bus "+ busSeleccionado.tipo() +" con origen: " +
-                    busSeleccionado.getOrigen() + " y destino: " + busSeleccionado.getDestino() + "\nProgramado con "+ busSeleccionado.getHorario() + "\nAsiento normal: $" +
+            String mensaje = "Usted va a comprar " + pasajero.getAsientosSeleccionado().size() + " asientos en este bus "+ busSeleccionado.tipo() +" con origen: " +
+                    busSeleccionado.getOrigen() + " y destino: " + busSeleccionado.getDestino() + "\nProgramado para las "+ busSeleccionado.getHorario() + "\nAsiento semi cama: $" +
                     busSeleccionado.precioAsientoSemiCama() + " x " + pasajero.getNumAsientosSemiCama() + " = $" + busSeleccionado.precioAsientoSemiCama() * pasajero.getNumAsientosSemiCama() +
-                    "\nAsiento Premium: $" + busSeleccionado.precioAsientoSalonCama() + " x " + pasajero.getNumAsientosSalonCama() + " = $" +
-                    busSeleccionado.precioAsientoSalonCama() * pasajero.getNumAsientosSalonCama() + "\nAsiento VIP: $" + busSeleccionado.precioAsientoSalonVip() + " x " +
+                    "\nAsiento salon cama: $" + busSeleccionado.precioAsientoSalonCama() + " x " + pasajero.getNumAsientosSalonCama() + " = $" +
+                    busSeleccionado.precioAsientoSalonCama() * pasajero.getNumAsientosSalonCama() + "\nAsiento salon vip: $" + busSeleccionado.precioAsientoSalonVip() + " x " +
                     pasajero.getNumAsientosSalonVip() + " = $" + busSeleccionado.precioAsientoSalonVip() * pasajero.getNumAsientosSalonVip() + "\nTOTAL: $" +
                     ((busSeleccionado.precioAsientoSemiCama() * pasajero.getNumAsientosSemiCama()) + (busSeleccionado.precioAsientoSalonCama() * pasajero.getNumAsientosSalonCama()) + (busSeleccionado.precioAsientoSalonVip() * pasajero.getNumAsientosSalonVip()));
             int opcion = JOptionPane.showOptionDialog(

@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * El PanelRecorrido es una clase que representa el panel de selección de recorrido y horario.
+ * El RecorridoPanel es una clase que representa el panel de selección de recorrido y horario.
  */
 public class RecorridoPanel extends JPanel implements ActionListener {
     private JComboBox<Recorrido> origenComboBox;
@@ -19,8 +19,8 @@ public class RecorridoPanel extends JPanel implements ActionListener {
     private SeleccionBus seleccionBus;
 
     /**
-     * Crea un nuevo PanelRecorrido con el comprador, los buses disponibles y el selector de bus asociados.
-     * @param pasajero el comprador asociado al panel
+     * Crea un nuevo RecorridoPanel con el pasajero, los buses disponibles y el selector de bus asociados.
+     * @param pasajero el pasajero asociado al panel
      * @param busDisponible los buses disponibles
      * @param seleccionBus el selector de bus asociado
      */
@@ -48,9 +48,13 @@ public class RecorridoPanel extends JPanel implements ActionListener {
         add(horario);
 
         horarioComboBox = new JComboBox<>();
-        horarioComboBox.addItem("Salida: 13:00 - Llegada: 15:00");
-        horarioComboBox.addItem("Salida: 15:00 - Llegada: 17:00");
-        horarioComboBox.addItem("Salida: 17:00 - Llegada: 19:00");
+        horarioComboBox.addItem("Salida: 10:00 - Llegada: 12:00");
+        horarioComboBox.addItem("Salida: 11:00 - Llegada: 12:30");
+        horarioComboBox.addItem("Salida: 13:00 - Llegada: 14:40");
+        horarioComboBox.addItem("Salida: 14:30 - Llegada: 16:10");
+        horarioComboBox.addItem("Salida: 16:00 - Llegada: 17:30");
+        horarioComboBox.addItem("Salida: 17:30 - Llegada: 19:40");
+        horarioComboBox.addItem("Salida: 19:00 - Llegada: 21:00");
         add(horarioComboBox);
 
         buscar = new JButton("Buscar");
