@@ -1,31 +1,32 @@
 package GUI;
+
 import Proyecto.Bus;
 import Proyecto.BusDisponible;
-import Proyecto.Pasajero;
+import Proyecto.Comprador;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * El SeleccionBus es una clase que representa el panel de selección de bus.
+ * El SelectorBus es una clase que representa el panel de selección de bus.
  */
-public class SeleccionBus extends JPanel implements ActionListener {
+public class SelectorBus extends JPanel implements ActionListener {
     private JComboBox<String> comboBox;
     private JButton button;
     private BusDisponible busDisponible;
-    private Pasajero pasajero;
-    private Bus busSeleccionado;
+    private Comprador comprador;
+    private Bus busElegido;
 
     /**
-     * Crea un nuevo SelectorBus con los buses disponibles y el pasajero asociados.
-     *
+     * Crea un nuevo SelectorBus con los buses disponibles y el comprador asociados.
      * @param busDisponible los buses disponibles
-     * @param pasajero      el pasajero asociado
+     * @param comprador el comprador asociado
      */
-    public SeleccionBus(BusDisponible busDisponible, Pasajero pasajero) {
+    public SelectorBus(BusDisponible busDisponible, Comprador comprador) {
         this.busDisponible = busDisponible;
-        this.pasajero = pasajero;
-        busDisponible.filtrarBuses(pasajero.getOrigenSeleccionado(), pasajero.getDestinoSeleccionado(), pasajero.getHorarioSeleccionado());
+        this.comprador = comprador;
+        busDisponible.filtrarBuses(comprador.getOrigenElegido(), comprador.getDestinoElegido(), comprador.getHorarioElegido());
 
         String[] busNombre = new String[busDisponible.getBusesDisponibles().size()];
         for (int i = 0; i < busDisponible.getBusesDisponibles().size(); i++) {
@@ -42,7 +43,6 @@ public class SeleccionBus extends JPanel implements ActionListener {
 
     /**
      * Maneja el evento de acción.
-     *
      * @param e el evento de acción
      */
     public void actionPerformed(ActionEvent e) {
@@ -50,14 +50,14 @@ public class SeleccionBus extends JPanel implements ActionListener {
             int selectedIndex = comboBox.getSelectedIndex();
             if (selectedIndex >= 0 && selectedIndex < busDisponible.getBusesDisponibles().size()) {
                 // Hacer algo con el bus seleccionado
-                busSeleccionado = busDisponible.getBusDisponible(selectedIndex);
-                System.out.println("Bus seleccionado: " + busSeleccionado);
+                busElegido = busDisponible.getBusDisponible(selectedIndex);
+                System.out.println("Bus seleccionado: " + busElegido);
 
-                if (busSeleccionado != null) {
+                if(busElegido != null){
                     this.setLayout(null);
-                    PanelBus asientosBus = new PanelBus(pasajero, busDisponible, busSeleccionado);
+                    PanelAsientosBus asientosBus = new PanelAsientosBus(comprador, busDisponible, busElegido);
                     this.add(asientosBus);
-                    asientosBus.setBounds(0, 100, 700, 900);
+                    asientosBus.setBounds(0,100,700,900);
                     revalidate();
                     repaint();
                 }
@@ -71,25 +71,16 @@ public class SeleccionBus extends JPanel implements ActionListener {
 
     /**
      * Actualiza la lista de buses disponibles.
-     *
      * @param busDisponible los buses disponibles
      */
     public void actualizarBuses(BusDisponible busDisponible) {
-        busDisponible.filtrarBuses(pasajero.getOrigenSeleccionado(), pasajero.getDestinoSeleccionado(), pasajero.getHorarioSeleccionado());
+        busDisponible.filtrarBuses(comprador.getOrigenElegido(), comprador.getDestinoElegido(), comprador.getHorarioElegido());
         this.busDisponible = busDisponible;
-
-        // Crear un nuevo modelo y establecerlo en el JComboBox
-        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+        String[] busNames = new String[busDisponible.getBusesDisponibles().size()];
         for (int i = 0; i < busDisponible.getBusesDisponibles().size(); i++) {
-            model.addElement("Bus " + (i + 1));
+            busNames[i] = "Bus " + (i + 1);
         }
-        comboBox.setModel(model);
-
-        // Seleccionar el primer elemento del nuevo modelo
-        comboBox.setSelectedIndex(0);
-
-        // Actualizar la interfaz
-        revalidate();
-        repaint();
+        comboBox.setModel(new DefaultComboBoxModel<>(busNames));
+        comboBox.setSelectedIndex(-1);
     }
 }

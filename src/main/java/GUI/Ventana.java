@@ -13,13 +13,13 @@ y esta las pone en funcionamiento.
 public class Ventana extends JFrame {
     private Panel P;
     private int escala;
-    private Pasajero pasajero;
+    private Comprador comprador;
     private BusDisponible buses;
 
     public Ventana() {
         super();
         escala = 160; //con 160 es 640x480 con 240 es 960x720 con 320 es 1280x960
-        pasajero = new Pasajero();
+        comprador = new Comprador();
         buses = new BusDisponible();
 
         setSize(4 * escala, 3 * escala); //tamaño fijo de 4:3
@@ -34,7 +34,7 @@ public class Ventana extends JFrame {
     }
 
     public void crearGUI() {
-        Panel panel = new Panel(escala, pasajero, buses);
+        Panel panel = new Panel(escala, comprador, buses);
         add(panel);
         setBounds(0,0,900,900);
         panel.setBounds(0,0,700,900);
