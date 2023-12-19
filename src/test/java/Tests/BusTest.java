@@ -21,12 +21,12 @@ public class BusTest {
             }
 
             @Override
-            public Recorrido getOrigen() {
+            public Recorridos getOrigen() {
                 return null;
             }
 
             @Override
-            public Recorrido getDestino() {
+            public Recorridos getDestino() {
                 return null;
             }
 
@@ -41,17 +41,17 @@ public class BusTest {
             }
 
             @Override
-            public int precioAsientoSemiCama() {
+            public int precioAsientoNormal() {
                 return 0;
             }
 
             @Override
-            public int precioAsientoSalonCama() {
+            public int precioAsientoPremium() {
                 return 0;
             }
 
             @Override
-            public int precioAsientoSalonVip() {
+            public int precioAsientoVIP() {
                 return 0;
             }
         };
@@ -62,7 +62,7 @@ public class BusTest {
      */
     @Test
     public void testAddAsiento() {
-        Asiento asiento = new SemiCama(100);
+        Asiento asiento = new AsientoNormal(100);
         bus.addAsiento(asiento);
         Assertions.assertEquals(asiento, bus.getAsiento(0));
     }
@@ -72,7 +72,7 @@ public class BusTest {
      */
     @Test
     public void testGetAsiento_IndexInRange() {
-        Asiento asiento = new SalonCama(200);
+        Asiento asiento = new AsientoPremium(200);
         bus.addAsiento(asiento);
         Asiento resultado = bus.getAsiento(0);
         Assertions.assertEquals(asiento, resultado);

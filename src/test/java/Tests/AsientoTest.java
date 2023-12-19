@@ -1,5 +1,6 @@
 package Tests;
 import Proyecto.*;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,10 +16,10 @@ public class AsientoTest {
      */
     @BeforeEach
     public void setUp() {
-        asiento = new Asiento("Asiento semi cama") {
+        asiento = new Asiento("Asiento normal") {
             @Override
             public String getTipo() {
-                return "Asiento para probar";
+                return "Asiento de prueba";
             }
         };
     }
@@ -28,19 +29,19 @@ public class AsientoTest {
      */
     @Test
     public void testGetSerie() {
-        asiento.setSerie(17);
-        Assertions.assertEquals(17, asiento.getSerie());
+        asiento.setSerie(123);
+        Assertions.assertEquals(123, asiento.getSerie());
     }
 
     /**
      * Prueba para cambiar el estado del asiento.
      */
     @Test
-    public void testCambiarEstado() {
+    public void testCambiarStatus() {
         Assertions.assertFalse(asiento.getStatus());
-        asiento.cambiarEstado();
+        asiento.cambiarStatus();
         Assertions.assertTrue(asiento.getStatus());
-        asiento.cambiarEstado();
+        asiento.cambiarStatus();
         Assertions.assertFalse(asiento.getStatus());
     }
 
@@ -49,6 +50,6 @@ public class AsientoTest {
      */
     @Test
     public void testGetTipo() {
-        Assertions.assertEquals("Asiento para probar", asiento.getTipo());
+        Assertions.assertEquals("Asiento de prueba", asiento.getTipo());
     }
 }

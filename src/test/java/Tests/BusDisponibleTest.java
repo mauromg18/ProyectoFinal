@@ -26,9 +26,9 @@ public class BusDisponibleTest {
      */
     @Test
     public void testAddBus() {
-        PrimerBus primerbus = new PrimerBus(Recorrido.CONCEPCION, Recorrido.CHILLAN, "13:00 AM");
-        busDisponible.addBus(primerbus);
-        Assertions.assertEquals(primerbus, busDisponible.getBus(0));
+        Bus1 bus1 = new Bus1(Recorridos.CONCEPCION, Recorridos.SANTIAGO, "10:00 AM");
+        busDisponible.addBus(bus1);
+        Assertions.assertEquals(bus1, busDisponible.getBus(0));
     }
 
     /**
@@ -36,9 +36,9 @@ public class BusDisponibleTest {
      */
     @Test
     public void testAddBusDisponible() {
-        PrimerBus primerbus = new PrimerBus(Recorrido.CONCEPCION, Recorrido.CHILLAN, "13:00 AM");
-        busDisponible.addBusDisponible(primerbus);
-        Assertions.assertEquals(primerbus, busDisponible.getBusDisponible(0));
+        Bus1 bus1 = new Bus1(Recorridos.CONCEPCION, Recorridos.SANTIAGO, "10:00 AM");
+        busDisponible.addBusDisponible(bus1);
+        Assertions.assertEquals(bus1, busDisponible.getBusDisponible(0));
     }
 
     /**
@@ -46,10 +46,10 @@ public class BusDisponibleTest {
      */
     @Test
     public void testGetBus() {
-        PrimerBus primerbus = new PrimerBus(Recorrido.CONCEPCION, Recorrido.CHILLAN, "13:00 AM");
-        busDisponible.addBus(primerbus);
+        Bus1 bus1 = new Bus1(Recorridos.CONCEPCION, Recorridos.SANTIAGO, "10:00 AM");
+        busDisponible.addBus(bus1);
         Bus bus = busDisponible.getBus(0);
-        Assertions.assertEquals(primerbus, bus);
+        Assertions.assertEquals(bus1, bus);
     }
 
     /**
@@ -66,7 +66,7 @@ public class BusDisponibleTest {
      */
     @Test
     public void testFiltrarBuses() {
-        busDisponible.filtrarBuses(Recorrido.CONCEPCION, Recorrido.CHILLAN, "13:00 AM");
+        busDisponible.filtrarBuses(Recorridos.CONCEPCION, Recorridos.SANTIAGO, "10:00 AM");
         Assertions.assertEquals(2, busDisponible.getBusesDisponibles().size());
     }
 
@@ -85,10 +85,10 @@ public class BusDisponibleTest {
      */
     @Test
     public void testGetBusDisponible() {
-        PrimerBus primerbus = new PrimerBus(Recorrido.CONCEPCION, Recorrido.CHILLAN, "13:00 AM");
-        busDisponible.addBusDisponible(primerbus);
+        Bus1 bus1 = new Bus1(Recorridos.CONCEPCION, Recorridos.SANTIAGO, "10:00 AM");
+        busDisponible.addBusDisponible(bus1);
         Bus bus = busDisponible.getBusDisponible(0);
-        Assertions.assertEquals(primerbus, bus);
+        Assertions.assertEquals(bus1, bus);
     }
 
     /**
