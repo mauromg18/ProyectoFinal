@@ -1,5 +1,4 @@
 package Proyecto;
-
 import java.util.ArrayList;
 
 /**

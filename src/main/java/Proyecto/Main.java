@@ -1,9 +1,7 @@
 package Proyecto;
-
 import GUI.Ventana;
-
 /*
- *@author: Matias, Camilo
+ *@author: Mauro Muñoz
  *hace la funcion de llamar a la clase ventana para ejecutarla en pantalla
  */
 public class Main{
