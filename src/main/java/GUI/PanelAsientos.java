@@ -1,5 +1,4 @@
 package GUI;
-
 import Proyecto.*;
 import javax.swing.*;
 import java.awt.*;

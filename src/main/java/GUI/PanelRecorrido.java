@@ -1,9 +1,7 @@
 package GUI;
-
 import Proyecto.*;
 import Proyecto.Comprador;
 import Proyecto.Recorridos;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -50,9 +48,9 @@ public class PanelRecorrido extends JPanel implements ActionListener {
         add(horario);
 
         horarioComboBox = new JComboBox<>();
-        horarioComboBox.addItem("Salida: 13:00 - Llegada: 15:00");
-        horarioComboBox.addItem("Salida: 15:00 - Llegada: 17:00");
-        horarioComboBox.addItem("Salida: 17:00 - Llegada: 19:00");
+        horarioComboBox.addItem("Salida: 11:00 - Llegada: 14:00");
+        horarioComboBox.addItem("Salida: 15:00 - Llegada: 18:00");
+        horarioComboBox.addItem("Salida: 18:00 - Llegada: 21:00");
         add(horarioComboBox);
 
         buscar = new JButton("Buscar");

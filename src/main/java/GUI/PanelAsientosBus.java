@@ -22,7 +22,7 @@ public class PanelAsientosBus extends JPanel {
      */
     public PanelAsientosBus(Comprador comprador, BusDisponible buses, Bus busElegido) {
         setLayout(null);
-        setBackground(Color.white);
+        setBackground(Color.black);
         asientos1 = new PanelAsientos(0, busElegido, comprador);
         asientos2 = new PanelAsientos(12, busElegido, comprador);
 
@@ -32,7 +32,7 @@ public class PanelAsientosBus extends JPanel {
         asientos2.setBounds(200, 0, 100, 370);
         add(asientos2);
 
-        confirmar = new JButton("Confirmar");
+        confirmar = new JButton("Comprar");
         add(confirmar);
         confirmar.setBounds(100, 380, 100, 40);
 
@@ -66,8 +66,8 @@ public class PanelAsientosBus extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             comprador.numAsientosElegidos();
-            String mensaje = "Usted va a reservar " + comprador.getAsientosElegidos().size() + " asientos en nuestro bus "+ busElegido.tipo() +" con origen: " +
-                    busElegido.getOrigen() + " y destino: " + busElegido.getDestino() + "\nProgramado con "+ busElegido.getHorario() + "\nAsiento normal: $" +
+            String mensaje = "Usted procedera a reservar " + comprador.getAsientosElegidos().size() + " asientos en nuestro bus "+ busElegido.tipo() +" que tiene como origen: " +
+                    busElegido.getOrigen() + " y como destino: " + busElegido.getDestino() + "\nProgramado con "+ busElegido.getHorario() + "\nAsiento normal: $" +
                     busElegido.precioAsientoNormal() + " x " + comprador.getNumAsientosNormalesElegidos() + " = $" + busElegido.precioAsientoNormal() * comprador.getNumAsientosNormalesElegidos() +
                     "\nAsiento Premium: $" + busElegido.precioAsientoPremium() + " x " + comprador.getNumAsientosPremiumElegidos() + " = $" +
                     busElegido.precioAsientoPremium() * comprador.getNumAsientosPremiumElegidos() + "\nAsiento VIP: $" + busElegido.precioAsientoVIP() + " x " +
@@ -76,7 +76,7 @@ public class PanelAsientosBus extends JPanel {
             int opcion = JOptionPane.showOptionDialog(
                     null,
                     mensaje,
-                    "Confirmar reserva",
+                    "Confirmar compra",
                     JOptionPane.YES_NO_OPTION,
                     JOptionPane.QUESTION_MESSAGE,
                     null,

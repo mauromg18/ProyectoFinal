@@ -1,7 +1,5 @@
 package GUI;
-
 import Proyecto.*;
-
 import java.awt.*;
 import javax.swing.JPanel;
 
@@ -22,8 +20,8 @@ public class Panel extends JPanel{
     public Panel(int Tamano, Comprador comprador, BusDisponible busDisponible){
         super();
         setLayout(null);
-        setBounds(0, 0, 4*Tamano, 3*Tamano);
-        this.setBackground(Color.white);
+        setBounds(0, 0, 5*Tamano, 4*Tamano);
+        this.setBackground(Color.yellow);
 
         this.bus = new SelectorBus(busDisponible, comprador);
         pr = new PanelRecorrido(comprador, busDisponible, bus);

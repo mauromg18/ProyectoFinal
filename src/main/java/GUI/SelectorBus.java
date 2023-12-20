@@ -1,5 +1,4 @@
 package GUI;
-
 import Proyecto.Bus;
 import Proyecto.BusDisponible;
 import Proyecto.Comprador;
@@ -36,7 +35,7 @@ public class SelectorBus extends JPanel implements ActionListener {
         comboBox = new JComboBox<>(busNombre);
         add(comboBox);
 
-        button = new JButton("Seleccionar");
+        button = new JButton("Elegir");
         button.addActionListener(this);
         add(button);
     }

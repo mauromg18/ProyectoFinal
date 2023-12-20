@@ -18,11 +18,11 @@ public class Ventana extends JFrame {
 
     public Ventana() {
         super();
-        escala = 160; //con 160 es 640x480 con 240 es 960x720 con 320 es 1280x960
+        escala = 320; //con 160 es 640x480 con 240 es 960x720 con 320 es 1280x960
         comprador = new Comprador();
         buses = new BusDisponible();
 
-        setSize(4 * escala, 3 * escala); //tamaño fijo de 4:3
+        setSize(5 * escala, 4 * escala); //tamaño fijo de 5:4
         setTitle("Simulador de buses");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);

@@ -22,13 +22,13 @@ public class Horarios {
 
         switch (opcion) {
             case 1:
-                horario = "Salida: 13:00 - Llegada: 15:00";
+                horario = "Salida: 11:00 - Llegada: 14:00";
                 break;
             case 2:
-                horario = "Salida: 15:00 - Llegada: 17:00";
+                horario = "Salida: 15:00 - Llegada: 18:00";
                 break;
             case 3:
-                horario = "Salida: 17:00 - Llegada: 19:00";
+                horario = "Salida: 18:00 - Llegada: 21:00";
                 break;
             default:
                 horario = "Horario no disponible";
