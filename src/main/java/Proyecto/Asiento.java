@@ -1,30 +1,30 @@
 package Proyecto;
 
 /**
- * La clase Asiento representa un asiento.
+ * La clase abstracta Asiento representa un asiento genérico.
  */
 public abstract class Asiento {
-    private boolean estado;
+    private boolean status;
     private int serie;
     private String tipo;
 
     /**
-     * Constructor de la clase Asiento.
+     * Constructor por defecto de la clase Asiento.
      */
     public Asiento(String s) {
     }
 
     /**
-     * determina el número de serie del asiento.
+     * Establece el número de serie del asiento.
      *
-     * @param serie el número de serie que se determina
+     * @param serie el número de serie a establecer
      */
     public void setSerie(int serie) {
         this.serie = serie;
     }
 
     /**
-     * extrae el número de serie del asiento.
+     * Obtiene el número de serie del asiento.
      *
      * @return el número de serie del asiento
      */
@@ -33,28 +33,28 @@ public abstract class Asiento {
     }
 
     /**
-     * extrae el estado del asiento.
+     * Obtiene el estado del asiento.
      *
-     * @return el estado del asiento (verdadero si está ocupado, falso si está desocupado)
+     * @return el estado del asiento (true si está ocupado, false si está libre)
      */
     public boolean getStatus() {
-        return estado;
+        return status;
     }
 
     /**
-     * Cambia el estado del asiento en cuestion.
-     * Intercambia los estados dependiendo en cual se encuentre
+     * Cambia el estado del asiento.
+     * Si el estado actual es ocupado, lo cambia a libre. Si el estado actual es libre, lo cambia a ocupado.
      */
-    public void cambiarEstado() {
-        if (estado) {
-            estado = false;
+    public void cambiarStatus() {
+        if (status) {
+            status = false;
         } else {
-            estado = true;
+            status = true;
         }
     }
 
     /**
-     * Extrae el tipo de asiento.
+     * Obtiene el tipo de asiento.
      *
      * @return el tipo de asiento
      */

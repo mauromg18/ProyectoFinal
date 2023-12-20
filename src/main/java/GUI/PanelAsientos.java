@@ -30,30 +30,30 @@ public class PanelAsientos extends JPanel {
             for (int i = n; i < n + 12; i++) {
                 if (busElegido.getAsiento(i).getTipo() == "Asiento normal") {
                     if(busElegido.getAsiento(i).getStatus()) {
-                        botones[i] = new JButton(new ImageIcon("Proyecto/src/imagenes/asientoNormalOcupado.png"));
+                        botones[i] = new JButton(new ImageIcon("Proyecto/src/main/java/Imagenes/AsientoOcupado.png"));
                         botones[i].setEnabled(false);
                     }else{
-                        botones[i] = new JButton(new ImageIcon("Proyecto/src/imagenes/asientoNormalDisponible.png"));
+                        botones[i] = new JButton(new ImageIcon("Proyecto/src/main/java/Imagenes/AsientoSemiCama.png"));
                     }
                     botones[i].setBackground(Color.white);
                     botones[i].addActionListener(new BotonListener(i));
                     add(botones[i]);
                 } else if (busElegido.getAsiento(i).getTipo() == "Asiento premium") {
                     if(busElegido.getAsiento(i).getStatus()) {
-                        botones[i] = new JButton(new ImageIcon("Proyecto/src/imagenes/asientoPremiumOcupado.png"));
+                        botones[i] = new JButton(new ImageIcon("Proyecto/src/main/java/Imagenes/AsientoOcupado.png"));
                         botones[i].setEnabled(false);
                     }else{
-                        botones[i] = new JButton(new ImageIcon("Proyecto/src/imagenes/asientoPremiumDisponible.png"));
+                        botones[i] = new JButton(new ImageIcon("Proyecto/src/main/java/Imagenes/SalonCama.png"));
                     }
                     botones[i].setBackground(Color.white);
                     botones[i].addActionListener(new BotonListener(i));
                     add(botones[i]);
                 } else if (busElegido.getAsiento(i).getTipo() == "Asiento VIP") {
                     if(busElegido.getAsiento(i).getStatus()) {
-                        botones[i] = new JButton(new ImageIcon("Proyecto/src/imagenes/asientoVIPOcupado.png"));
+                        botones[i] = new JButton(new ImageIcon("Proyecto/src/main/java/Imagenes/AsientoOcupado.png"));
                         botones[i].setEnabled(false);
                     }else{
-                        botones[i] = new JButton(new ImageIcon("Proyecto/src/imagenes/asientoVIPDisponible.png"));
+                        botones[i] = new JButton(new ImageIcon("Proyecto/src/main/java/Imagenes/SalonVip.png"));
                     }
                     botones[i].setBackground(Color.white);
                     botones[i].addActionListener(new BotonListener(i));

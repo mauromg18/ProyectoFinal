@@ -1,8 +1,9 @@
 package Proyecto;
+
 import java.util.ArrayList;
 
 /**
- * La clase BusDisponible se encarga de gestionar los buses disponibles y filtrarlos según el origen, destino y horario seleccionados.
+ * La clase BusDisponible se encarga de gestionar los buses disponibles y filtrarlos según el origen, destino y horario elegidos.
  */
 public class BusDisponible {
     private ArrayList<Bus> buses;
@@ -10,21 +11,20 @@ public class BusDisponible {
 
     /**
      * Constructor de la clase BusDisponible.
-     * Crea instancias de PrimerBus y SegundoBus para todos los posibles recorridos y horarios.
+     * Crea instancias de Bus1 y Bus2 para todos los posibles recorridos y horarios.
      */
     public BusDisponible() {
         Horarios horario = new Horarios();
         buses = new ArrayList<>();
-        busesDisponibles = new ArrayList<>();
 
-        for (Recorrido origen : Recorrido.values()) {
-            for (Recorrido destino : Recorrido.values()) {
+        for (Recorridos origen : Recorridos.values()) {
+            for (Recorridos destino : Recorridos.values()) {
                 if (origen != destino) {
-                    for (int i = 1; i < 7; i++) {
-                        PrimerBus primerbus = new PrimerBus(origen, destino, (horario.Horario(i)));
-                        addBus(primerbus);
-                    SegundoBus segundobus = new SegundoBus(origen, destino, (horario.Horario(i)));
-                        addBus(segundobus);
+                    for (int i = 1; i < 4; i++) {
+                        Bus1 bus1 = new Bus1(origen, destino, (horario.Horario(i)));
+                        addBus(bus1);
+                        Bus2 bus2 = new Bus2(origen, destino, (horario.Horario(i)));
+                        addBus(bus2);
                     }
                 }
             }
@@ -66,14 +66,14 @@ public class BusDisponible {
     /**
      * Filtra los buses disponibles según el origen, destino y horario elegidos.
      *
-     * @param origenSeleccionado  el origen seleccionado
-     * @param destinoSeleccionado el destino seleccionado
-     * @param horarioSeleccionado el horario seleccionado
+     * @param origenElegido  el origen elegido
+     * @param destinoElegido el destino elegido
+     * @param horarioElegido el horario elegido
      */
-    public void filtrarBuses(Recorrido origenSeleccionado, Recorrido destinoSeleccionado, String horarioSeleccionado) {
+    public void filtrarBuses(Recorridos origenElegido, Recorridos destinoElegido, String horarioElegido) {
         busesDisponibles = new ArrayList<>();
         for (int i = 0; i < buses.size(); i++) {
-            if (buses.get(i).getOrigen() == origenSeleccionado && buses.get(i).getDestino() == destinoSeleccionado && buses.get(i).getHorario() == horarioSeleccionado) {
+            if (buses.get(i).getOrigen() == origenElegido && buses.get(i).getDestino() == destinoElegido && buses.get(i).getHorario() == horarioElegido) {
                 addBusDisponible(buses.get(i));
             }
         }

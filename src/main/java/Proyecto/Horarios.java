@@ -1,4 +1,5 @@
 package Proyecto;
+
 /**
  * La clase Horarios proporciona métodos para obtener los horarios de salida y llegada de un viaje.
  */
@@ -13,33 +14,21 @@ public class Horarios {
     /**
      * Devuelve el horario de salida y llegada correspondiente a la opción seleccionada.
      *
-     * @param opcion la opción elegida
-     * @return el horario de salida y llegada
+     * @param opcion la opción seleccionada
+     * @return el horario de salida y llegada en formato de cadena de texto
      */
     public String Horario(int opcion){
         String horario;
 
         switch (opcion) {
             case 1:
-                horario = "Salida: 10:00 hrs. - Llegada: 12:00 hrs.";
+                horario = "Salida: 13:00 - Llegada: 15:00";
                 break;
             case 2:
-                horario = "Salida: 11:00 hrs. - Llegada: 12:30 hrs.";
+                horario = "Salida: 15:00 - Llegada: 17:00";
                 break;
-                case 3:
-                horario = "Salida: 13:00 hrs. - Llegada: 14:40 hrs.";
-                break;
-            case 4:
-                horario = "Salida: 14:30 hrs. - Llegada: 16:10 hrs.";
-                break;
-            case 5:
-                horario = "Salida: 16:00 hrs. - Llegada: 17:30 hrs.";
-                break;
-            case 6:
-                horario = "Salida: 17:30 hrs. - Llegada: 19:40 hrs.";
-                break;
-            case 7:
-                horario = "Salida: 19:00 hrs. - Llegada: 21:00 hrs.";
+            case 3:
+                horario = "Salida: 17:00 - Llegada: 19:00";
                 break;
             default:
                 horario = "Horario no disponible";

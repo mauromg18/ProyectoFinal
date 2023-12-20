@@ -1,10 +1,13 @@
 package Proyecto;
+
 import java.util.ArrayList;
+
 /**
- * La clase abstracta Bus representa un bus.
+ * La clase abstracta Bus representa un bus genérico.
  */
 public abstract class Bus {
     private ArrayList<Asiento> asientosBus;
+
     /**
      * Constructor por defecto de la clase Bus.
      * Inicializa la lista de asientos del bus y llama al método agregarAsientos().
@@ -13,9 +16,10 @@ public abstract class Bus {
         asientosBus = new ArrayList<Asiento>();
         agregarAsientos();
     }
+
     /**
      * Método abstracto para agregar los asientos al bus.
-     * Cada subclase debe implementar este método.
+     * Cada subclase debe implementar este método para definir la lógica específica de los asientos.
      */
     public abstract void agregarAsientos();
 
@@ -29,9 +33,10 @@ public abstract class Bus {
     }
 
     /**
-     * Obtiene el asiento en el índice requerido.
+     * Obtiene el asiento en el índice especificado.
+     *
      * @param indice el índice del asiento
-     * @return el asiento en el índice requerido, o null si el índice está fuera de rango
+     * @return el asiento en el índice especificado, o null si el índice está fuera de rango
      */
     public Asiento getAsiento(int indice) {
         if (indice >= 0 && indice < asientosBus.size()) {
@@ -46,14 +51,14 @@ public abstract class Bus {
      *
      * @return el origen del recorrido del bus
      */
-    public abstract Recorrido getOrigen();
+    public abstract Recorridos getOrigen();
 
     /**
      * Obtiene el destino del recorrido del bus.
      *
      * @return el destino del recorrido del bus
      */
-    public abstract Recorrido getDestino();
+    public abstract Recorridos getDestino();
 
     /**
      * Obtiene el horario del bus.
@@ -70,23 +75,23 @@ public abstract class Bus {
     public abstract int tipo();
 
     /**
-     * Obtiene el precio de un asiento semi cama en el bus.
+     * Obtiene el precio de un asiento normal en el bus.
      *
-     * @return el precio de un asiento semi cama
+     * @return el precio de un asiento normal
      */
-    public abstract int precioAsientoSemiCama();
+    public abstract int precioAsientoNormal();
 
     /**
-     * Obtiene el precio de un asiento salon cama en el bus.
+     * Obtiene el precio de un asiento premium en el bus.
      *
-     * @return el precio de un asiento salon cama
+     * @return el precio de un asiento premium
      */
-    public abstract int precioAsientoSalonCama();
+    public abstract int precioAsientoPremium();
 
     /**
-     * Obtiene el precio de un asiento salon vip en el bus.
+     * Obtiene el precio de un asiento VIP en el bus.
      *
-     * @return el precio de un asiento salon vip
+     * @return el precio de un asiento VIP
      */
-    public abstract int precioAsientoSalonVip();
+    public abstract int precioAsientoVIP();
 }
