@@ -26,7 +26,7 @@ public class BusDisponibleTest {
      */
     @Test
     public void testAddBus() {
-        Bus1 bus1 = new Bus1(Recorridos.CONCEPCION, Recorridos.SANTIAGO, "10:00 AM");
+        Bus1 bus1 = new Bus1(Recorridos.CONCEPCION, Recorridos.CHILLAN, "10:00 AM");
         busDisponible.addBus(bus1);
         Assertions.assertEquals(bus1, busDisponible.getBus(0));
     }
@@ -36,7 +36,7 @@ public class BusDisponibleTest {
      */
     @Test
     public void testAddBusDisponible() {
-        Bus1 bus1 = new Bus1(Recorridos.CONCEPCION, Recorridos.SANTIAGO, "10:00 AM");
+        Bus1 bus1 = new Bus1(Recorridos.CONCEPCION, Recorridos.CHILLAN, "10:00 AM");
         busDisponible.addBusDisponible(bus1);
         Assertions.assertEquals(bus1, busDisponible.getBusDisponible(0));
     }
@@ -46,7 +46,7 @@ public class BusDisponibleTest {
      */
     @Test
     public void testGetBus() {
-        Bus1 bus1 = new Bus1(Recorridos.CONCEPCION, Recorridos.SANTIAGO, "10:00 AM");
+        Bus1 bus1 = new Bus1(Recorridos.CONCEPCION, Recorridos.CHILLAN, "10:00 AM");
         busDisponible.addBus(bus1);
         Bus bus = busDisponible.getBus(0);
         Assertions.assertEquals(bus1, bus);
@@ -66,7 +66,7 @@ public class BusDisponibleTest {
      */
     @Test
     public void testFiltrarBuses() {
-        busDisponible.filtrarBuses(Recorridos.CONCEPCION, Recorridos.SANTIAGO, "10:00 AM");
+        busDisponible.filtrarBuses(Recorridos.CONCEPCION, Recorridos.CHILLAN, "10:00 AM");
         Assertions.assertEquals(2, busDisponible.getBusesDisponibles().size());
     }
 
@@ -85,7 +85,7 @@ public class BusDisponibleTest {
      */
     @Test
     public void testGetBusDisponible() {
-        Bus1 bus1 = new Bus1(Recorridos.CONCEPCION, Recorridos.SANTIAGO, "10:00 AM");
+        Bus1 bus1 = new Bus1(Recorridos.CONCEPCION, Recorridos.CHILLAN, "10:00 AM");
         busDisponible.addBusDisponible(bus1);
         Bus bus = busDisponible.getBusDisponible(0);
         Assertions.assertEquals(bus1, bus);

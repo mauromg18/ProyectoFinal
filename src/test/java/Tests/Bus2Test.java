@@ -15,7 +15,7 @@ public class Bus2Test {
     @BeforeEach
     public void setUp() {
         Recorridos origen = Recorridos.CONCEPCION;
-        Recorridos destino = Recorridos.SANTIAGO;
+        Recorridos destino = Recorridos.CHILLAN;
         String horario = "10:00 AM";
         bus2 = new Bus2(origen, destino, horario);
     }

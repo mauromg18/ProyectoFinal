@@ -27,7 +27,7 @@ public class AsientoNormalTest {
     }
 
     /**
-     * Prueba para obtener el tipo de asiento normal.
+     * Prueba para obtener el tipo de asiento normal .
      */
     @Test
     public void testGetTipo() {

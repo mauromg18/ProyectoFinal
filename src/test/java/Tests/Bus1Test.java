@@ -15,7 +15,7 @@ public class Bus1Test {
      */
     @BeforeEach
     public void setUp() {
-        bus1 = new Bus1(Recorridos.CONCEPCION, Recorridos.SANTIAGO, "10:00");
+        bus1 = new Bus1(Recorridos.CONCEPCION, Recorridos.CHILLAN, "10:00");
     }
 
     /**
@@ -38,7 +38,7 @@ public class Bus1Test {
      */
     @Test
     public void testGetDestino() {
-        Assertions.assertEquals(Recorridos.SANTIAGO, bus1.getDestino());
+        Assertions.assertEquals(Recorridos.CHILLAN, bus1.getDestino());
     }
 
     /**
